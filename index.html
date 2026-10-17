@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>上益環保｜台中餐飲業病媒防治・除蟲消毒</title>
+<meta name="description" content="上益環保有限公司，台中在地病媒防治。餐廳、小吃店、中央廚房除蟲消毒，每次附施作紀錄，衛生局 GHP 稽查可出示。免費到店檢查。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* 版型：綠色品牌帶 → 白底內容區塊交錯淺綠帶；手機底部固定聯絡列 */
+:root{
+  --bg:#f7f5ef;--card:#ffffff;--ink:#1d2a24;--muted:#5b6b63;--line:#e3dfd4;
+  --brand:#1f6b4f;--brand-ink:#ffffff;--accent:#e8a33d;--soft:#e7f1ec;--line-green:#06c755;
+  --sel:#1f6b4f;--sel-ink:#ffffff;--warn:#b5462f;--qrbg:#ffffff;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121815;--card:#1b2420;--ink:#e9efe9;--muted:#a3b2aa;--line:#2c3a33;
+  --brand:#3fa77e;--brand-ink:#0e1512;--accent:#f0b45a;--soft:#1f2e27;--sel:#3fa77e;--sel-ink:#0e1512;--warn:#f08a6e;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+header{background:var(--brand);color:var(--brand-ink)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:12px}
+.logo{font-weight:900;font-size:20px;letter-spacing:.04em}
+.logo small{display:block;font-weight:500;font-size:12px;opacity:.85;letter-spacing:.1em}
+.top a.tel{font-weight:700;text-decoration:none;white-space:nowrap}
+.hero{padding:36px 0 48px}
+.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.25;margin:0 0 14px;font-weight:900;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{margin:0 0 24px;font-size:17px;opacity:.92;max-width:34em}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:0;cursor:pointer;min-height:48px;font-family:inherit}
+.btn:focus-visible,.chip:focus-within,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn-line{background:var(--line-green);color:#fff}
+.btn-tel{background:#fff;color:#1f6b4f}
+.btn-ghost{background:transparent;color:var(--brand-ink);border:2px solid currentColor}
+.btn-main{background:var(--brand);color:var(--brand-ink)}
+.btn-out{background:transparent;color:var(--brand);border:2px solid var(--brand)}
+section{padding:44px 0}
+h2{font-size:clamp(22px,4.5vw,30px);margin:0 0 8px;font-weight:900;text-wrap:balance}
+.lead{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.grid>*{min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--brand);font-weight:900;margin-bottom:8px}
+.band{background:var(--soft)}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}
+th{background:var(--brand);color:var(--brand-ink);font-weight:700}
+td.r,th.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* 互動：蟲害自我檢查 */
+.q{margin-bottom:18px}
+.q>.qt{font-weight:700;margin-bottom:8px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:42px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font-size:15px;cursor:pointer;user-select:none}
+.chip input:checked+span{background:var(--sel);color:var(--sel-ink);border-color:var(--sel);font-weight:700}
+.result{background:var(--brand);color:var(--brand-ink);border-radius:16px;padding:20px}
+.result h3{margin:0 0 6px;font-size:20px}
+.result .big{font-size:28px;font-weight:900;line-height:1.25;font-variant-numeric:tabular-nums}
+.result .sub{font-size:14px;opacity:.92}
+.result ul{margin:8px 0 0;padding-left:20px;font-size:15px}
+.result .rbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.result .rbtns .btn{background:var(--brand-ink);color:var(--brand);padding:10px 18px;min-height:44px;font-size:15px}
+.lvl{display:inline-block;border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;background:var(--brand-ink);color:var(--brand);margin-bottom:6px}
+.empty{color:inherit;opacity:.9}
+
+/* 留言表單 */
+.formgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.formgrid>*{min-width:0}
+.field label{display:block;font-weight:700;font-size:15px;margin-bottom:6px}
+.field .opt{font-weight:400;color:var(--muted);font-size:13px}
+.field input,.field select,.field textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:16px}
+.field textarea{min-height:110px;resize:vertical}
+.full{grid-column:1/-1}
+.err{color:var(--warn);font-size:14px;margin-top:8px;min-height:1.2em}
+.done{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+.done pre{white-space:pre-wrap;word-break:break-word;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:14px;margin:10px 0}
+.qrbox{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;color:var(--ink)}
+.qrbox .qr{width:120px;flex:none;background:var(--qrbg);padding:8px;border-radius:12px}
+.qrbox .qr svg{display:block;width:100%;height:auto}
+.qrbox p{margin:0;font-size:15px;min-width:0}
+.qrbox b{display:block;font-size:17px}
+
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{margin:8px 0 0;color:var(--muted)}
+.contact{background:var(--brand);color:var(--brand-ink)}
+.contact .lead{color:inherit;opacity:.9}
+.info{display:grid;gap:6px;margin:18px 0 22px;font-size:15px}
+.info a{text-decoration:none;font-weight:700}
+footer{padding:20px 0 90px;font-size:13px;color:var(--muted);text-align:center}
+.sticky{position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--line);z-index:9}
+.sticky .btn{flex:1;padding:12px 8px;font-size:15px}
+.sticky .btn-tel{background:var(--brand);color:var(--brand-ink)}
+@media (min-width:760px){.sticky{display:none}footer{padding-bottom:24px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <div class="logo">上益環保<small>病媒防治・除蟲消毒</small></div>
+    <a class="tel" target="_top" href="tel:0986191033">☎ 0986-191-033</a>
+  </div>
+  <div class="wrap hero">
+    <h1>台中餐廳除蟲消毒<br><em>每次附施作紀錄</em><br>衛生局稽查直接出示</h1>
+    <p>蟑螂、老鼠、蚊蠅、果蠅一次處理。專做餐飲業：小吃店、餐廳、早餐店、中央廚房。先免費到店檢查，看到問題再報價。</p>
+    <div class="btns">
+      <a class="btn btn-line js-line" href="#" target="_blank" rel="noopener">LINE 加好友詢問</a>
+      <a class="btn btn-tel" href="#check" data-go="check">30 秒蟲害自我檢查</a>
+      <a class="btn btn-ghost" href="#ask" data-go="ask">留資料／提問</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>為什麼餐飲業找上益</h2>
+    <p class="lead">衛生局 GHP 稽查看的是「有沒有定期防治、有沒有紀錄」。</p>
+    <div class="grid">
+      <div class="card"><h3>📋 每次附施作紀錄</h3><p>記錄日期、區域、藥劑名稱與許可證字號，稽查或複查時直接拿給稽查員看。</p></div>
+      <div class="card"><h3>⚡ 複查急救 72 小時到場</h3><p>收到限期改善通知？72 小時內到場處理並出紀錄，簽 6 個月以上免加急費。</p></div>
+      <div class="card"><h3>🍳 避開營業時間</h3><p>下午空檔或打烊後施作，施作前覆蓋食材與器具，不影響營業。</p></div>
+      <div class="card"><h3>🔁 合約期間免費補做</h3><p>月約期間蟑螂、螞蟻復發，通知後免費補施作，不用另外付錢。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="check">
+  <div class="wrap">
+    <h2>30 秒蟲害自我檢查</h2>
+    <p class="lead">點選店裡的狀況，馬上看建議做法和大概費用。</p>
+    <div class="grid">
+      <div class="card">
+        <div class="q"><span class="qt">看到哪些蟲？（可複選）</span>
+          <div class="chips" id="c-pests">
+            <label class="chip"><input type="checkbox" value="蟑螂"><span>蟑螂</span></label>
+            <label class="chip"><input type="checkbox" value="老鼠"><span>老鼠</span></label>
+            <label class="chip"><input type="checkbox" value="螞蟻"><span>螞蟻</span></label>
+            <label class="chip"><input type="checkbox" value="蚊子／蒼蠅"><span>蚊子／蒼蠅</span></label>
+            <label class="chip"><input type="checkbox" value="果蠅／蛾蚋"><span>果蠅／蛾蚋</span></label>
+            <label class="chip"><input type="checkbox" value="還沒看到，想預防"><span>還沒看到，想預防</span></label>
+          </div></div>
+        <div class="q"><span class="qt">在哪裡看到？（可複選）</span>
+          <div class="chips" id="c-where">
+            <label class="chip"><input type="checkbox" value="廚房"><span>廚房</span></label>
+            <label class="chip"><input type="checkbox" value="排水溝"><span>排水溝</span></label>
+            <label class="chip"><input type="checkbox" value="倉庫"><span>倉庫</span></label>
+            <label class="chip"><input type="checkbox" value="用餐區"><span>用餐區</span></label>
+            <label class="chip"><input type="checkbox" value="白天也會看到"><span>白天也會看到</span></label>
+          </div></div>
+        <div class="q"><span class="qt">店面大約幾坪？</span>
+          <div class="chips" id="c-size">
+            <label class="chip"><input type="radio" name="size" value="30 坪以下" checked><span>30 坪以下</span></label>
+            <label class="chip"><input type="radio" name="size" value="31～60 坪"><span>31～60 坪</span></label>
+            <label class="chip"><input type="radio" name="size" value="61～100 坪"><span>61～100 坪</span></label>
+            <label class="chip"><input type="radio" name="size" value="100 坪以上"><span>100 坪以上</span></label>
+          </div></div>
+        <div class="q" style="margin-bottom:0"><span class="qt">想怎麼做？</span>
+          <div class="chips" id="c-plan">
+            <label class="chip"><input type="radio" name="plan" value="12" checked><span>年約（最划算）</span></label>
+            <label class="chip"><input type="radio" name="plan" value="6"><span>半年約</span></label>
+            <label class="chip"><input type="radio" name="plan" value="0"><span>先做一次</span></label>
+          </div></div>
+      </div>
+      <div class="result" id="out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>價格參考</h2>
+    <p class="lead">未稅價。實際依現場檢查與蟲害程度調整。</p>
+    <div class="tbl"><table>
+      <thead><tr><th>店面大小</th><th class="r">首次深度除蟲</th><th class="r">月約（每月1次）</th></tr></thead>
+      <tbody>
+        <tr><td>小型店（30 坪以下）</td><td class="r">3,000</td><td class="r">1,800／月</td></tr>
+        <tr><td>中型店（31～60 坪）</td><td class="r">4,500</td><td class="r">2,800／月</td></tr>
+        <tr><td>大型店（61～100 坪）</td><td class="r">6,500</td><td class="r">4,000／月</td></tr>
+        <tr><td>工廠・中央廚房（100 坪以上）</td><td class="r">每坪 70 元起</td><td class="r">每坪 45 元起</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">簽年約：首次除蟲 5 折。簽半年約：首次除蟲 8 折。鼠類防治首次 +1,500、月約每月 +500；夜間或假日施工每次 +1,000。以上另加 5% 營業稅。</p>
+  </div>
+</section>
+
+<section class="band" id="ask">
+  <div class="wrap">
+    <h2>留資料／提問</h2>
+    <p class="lead">填好按送出，我們當天用電話或 LINE 回覆。急件請直接打 0986-191-033。</p>
+    <form id="askform" class="card" novalidate>
+      <input id="f-web" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <div class="formgrid">
+        <div class="field"><label for="f-shop">店名</label><input id="f-shop" autocomplete="organization" required></div>
+        <div class="field"><label for="f-person">怎麼稱呼您</label><input id="f-person" placeholder="例：王先生" required></div>
+        <div class="field"><label for="f-phone">聯絡電話</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="f-line">LINE ID <span class="opt">選填</span></label><input id="f-line"></div>
+        <div class="field"><label for="f-area">店家所在行政區</label><select id="f-area" required></select></div>
+        <div class="field"><label for="f-size">店面大約坪數</label>
+          <select id="f-size"><option>30 坪以下</option><option>31～60 坪</option><option>61～100 坪</option><option>100 坪以上</option><option>不確定</option></select></div>
+        <div class="field"><label for="f-need">需求</label>
+          <select id="f-need"><option>預約免費到店檢查</option><option>想先知道價格</option><option>收到衛生局限期改善／複查通知</option><option>想簽定期合約</option><option>其他</option></select></div>
+        <div class="field"><label for="f-time">方便聯絡的時段</label>
+          <select id="f-time"><option>都可以</option><option>上午 9-12 點</option><option>下午 2-5 點</option><option>晚上 6-9 點</option></select></div>
+        <div class="field full"><span style="display:block;font-weight:700;font-size:15px;margin-bottom:6px">看到的蟲 <span class="opt">可複選</span></span>
+          <div class="chips" id="f-pests">
+            <label class="chip"><input type="checkbox" value="蟑螂"><span>蟑螂</span></label>
+            <label class="chip"><input type="checkbox" value="老鼠"><span>老鼠</span></label>
+            <label class="chip"><input type="checkbox" value="螞蟻"><span>螞蟻</span></label>
+            <label class="chip"><input type="checkbox" value="蚊子／蒼蠅"><span>蚊子／蒼蠅</span></label>
+            <label class="chip"><input type="checkbox" value="果蠅／蛾蚋"><span>果蠅／蛾蚋</span></label>
+            <label class="chip"><input type="checkbox" value="還沒看到，想預防"><span>還沒看到，想預防</span></label>
+          </div></div>
+        <div class="field full"><label for="f-q">想問的問題或狀況說明 <span class="opt">選填</span></label><textarea id="f-q" placeholder="例：晚上廚房地板常看到小強，下週衛生局要複查"></textarea></div>
+      </div>
+      <p class="note">資料只用於這次聯絡和報價，不會提供給其他人。</p>
+      <div class="err" id="f-err" role="alert"></div>
+      <div class="btns"><button class="btn btn-main" type="submit" id="f-send">送出</button></div>
+      <div class="done hide" id="f-done">
+        <b id="f-done-title"></b>
+        <p class="note" id="f-done-text" style="margin:4px 0 0"></p>
+        <pre id="f-msg"></pre>
+        <div class="btns">
+          <a class="btn btn-main hide" id="f-open" href="#" target="_blank" rel="noopener">改用 Google 表單填寫</a>
+          <button class="btn btn-out" type="button" id="f-copy">複製內容</button>
+          <a class="btn btn-line js-line" href="#" target="_blank" rel="noopener">開啟 LINE</a>
+        </div>
+      </div>
+    </form>
+    <div class="qrbox" style="margin-top:14px">
+      <div class="qr"><svg viewBox="0 0 29 29" role="img" aria-label="LINE 加好友 QR Code" shape-rendering="crispEdges"><path fill="#000" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM14 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM25 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM17 1h1v1h-1zM19 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM15 2h1v1h-1zM18 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM18 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h1v1h-1zM13 4h1v1h-1zM16 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM17 5h1v1h-1zM18 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM9 7h1v1h-1zM11 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM20 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM24 8h1v1h-1zM27 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM21 9h1v1h-1zM22 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM0 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM10 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM14 11h1v1h-1zM16 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM19 11h1v1h-1zM21 11h1v1h-1zM22 11h1v1h-1zM27 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM8 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM21 12h1v1h-1zM22 12h1v1h-1zM25 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM0 13h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM7 13h1v1h-1zM11 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM25 13h1v1h-1zM28 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM21 14h1v1h-1zM25 14h1v1h-1zM27 14h1v1h-1zM28 14h1v1h-1zM0 15h1v1h-1zM1 15h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM11 15h1v1h-1zM15 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM1 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h1v1h-1zM9 16h1v1h-1zM10 16h1v1h-1zM16 16h1v1h-1zM17 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM22 16h1v1h-1zM25 16h1v1h-1zM27 16h1v1h-1zM28 16h1v1h-1zM1 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM8 17h1v1h-1zM9 17h1v1h-1zM10 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM16 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM25 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM12 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM18 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM24 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM1 19h1v1h-1zM2 19h1v1h-1zM3 19h1v1h-1zM7 19h1v1h-1zM9 19h1v1h-1zM13 19h1v1h-1zM14 19h1v1h-1zM16 19h1v1h-1zM17 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM23 19h1v1h-1zM24 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM7 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM14 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM10 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM28 21h1v1h-1zM0 22h1v1h-1zM1 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM11 22h1v1h-1zM13 22h1v1h-1zM17 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM12 23h1v1h-1zM16 23h1v1h-1zM17 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM28 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM11 24h1v1h-1zM12 24h1v1h-1zM17 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM27 24h1v1h-1zM0 25h1v1h-1zM2 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM6 25h1v1h-1zM9 25h1v1h-1zM10 25h1v1h-1zM12 25h1v1h-1zM13 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM18 25h1v1h-1zM19 25h1v1h-1zM21 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM26 25h1v1h-1zM0 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM9 26h1v1h-1zM13 26h1v1h-1zM14 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM20 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM23 27h1v1h-1zM27 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM11 28h1v1h-1zM13 28h1v1h-1zM14 28h1v1h-1zM15 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM20 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1z"/></svg></div>
+      <p><b>用手機掃，加 LINE 好友</b>直接傳照片給我們看，更快判斷蟲害。<br><a class="js-line" href="#" target="_blank" rel="noopener">或點這裡加好友</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>常見問題</h2>
+    <details><summary>施作要多久？需要停業嗎？</summary><p>30 坪以下的店約 1 小時。安排在下午空檔或打烊後，不需要停業。</p></details>
+    <details><summary>用的藥安全嗎？</summary><p>使用環境部核可的環境用藥，依標示稀釋，施作時避開食材與器具，施作紀錄會寫上藥劑名稱和許可證字號。</p></details>
+    <details><summary>被衛生局要求限期改善怎麼辦？</summary><p>直接 LINE 或打電話給我們，72 小時內到場處理並開立施作紀錄，複查時可以出示。</p></details>
+    <details><summary>做完蟲又出現怎麼辦？</summary><p>月約期間蟑螂、螞蟻復發，通知後免費補施作。</p></details>
+    <details><summary>服務範圍？</summary><p>台中市全區。</p></details>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <h2>預約免費到店檢查</h2>
+    <p class="lead">打電話或傳 LINE 告訴我們店名、地址、坪數，當天回覆。</p>
+    <div class="info">
+      <div>手機：<a target="_top" href="tel:0986191033">0986-191-033</a>（蕭先生）</div>
+      <div>公司：<a target="_top" href="tel:0422516582">04-2251-6582</a></div>
+      <div>地址：台中市南屯區水安街 9 號 1 樓</div>
+      <div class="js-license-row hide">病媒防治業許可執照：<span class="js-license"></span></div>
+    </div>
+    <div class="qrbox" style="max-width:420px;margin-bottom:18px">
+      <div class="qr"><svg viewBox="0 0 29 29" role="img" aria-label="LINE 加好友 QR Code" shape-rendering="crispEdges"><path fill="#000" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM14 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM25 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM17 1h1v1h-1zM19 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM15 2h1v1h-1zM18 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM18 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h1v1h-1zM13 4h1v1h-1zM16 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM17 5h1v1h-1zM18 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM9 7h1v1h-1zM11 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM20 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM24 8h1v1h-1zM27 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM21 9h1v1h-1zM22 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM0 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM10 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM14 11h1v1h-1zM16 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM19 11h1v1h-1zM21 11h1v1h-1zM22 11h1v1h-1zM27 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM8 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM21 12h1v1h-1zM22 12h1v1h-1zM25 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM0 13h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM7 13h1v1h-1zM11 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM25 13h1v1h-1zM28 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM21 14h1v1h-1zM25 14h1v1h-1zM27 14h1v1h-1zM28 14h1v1h-1zM0 15h1v1h-1zM1 15h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM11 15h1v1h-1zM15 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM1 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h1v1h-1zM9 16h1v1h-1zM10 16h1v1h-1zM16 16h1v1h-1zM17 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM22 16h1v1h-1zM25 16h1v1h-1zM27 16h1v1h-1zM28 16h1v1h-1zM1 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM8 17h1v1h-1zM9 17h1v1h-1zM10 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM16 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM25 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM12 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM18 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM24 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM1 19h1v1h-1zM2 19h1v1h-1zM3 19h1v1h-1zM7 19h1v1h-1zM9 19h1v1h-1zM13 19h1v1h-1zM14 19h1v1h-1zM16 19h1v1h-1zM17 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM23 19h1v1h-1zM24 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM7 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM14 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM10 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM28 21h1v1h-1zM0 22h1v1h-1zM1 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM11 22h1v1h-1zM13 22h1v1h-1zM17 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM12 23h1v1h-1zM16 23h1v1h-1zM17 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM28 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM11 24h1v1h-1zM12 24h1v1h-1zM17 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM27 24h1v1h-1zM0 25h1v1h-1zM2 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM6 25h1v1h-1zM9 25h1v1h-1zM10 25h1v1h-1zM12 25h1v1h-1zM13 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM18 25h1v1h-1zM19 25h1v1h-1zM21 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM26 25h1v1h-1zM0 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM9 26h1v1h-1zM13 26h1v1h-1zM14 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM20 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM23 27h1v1h-1zM27 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM11 28h1v1h-1zM13 28h1v1h-1zM14 28h1v1h-1zM15 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM20 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1z"/></svg></div>
+      <p><b>LINE 加好友</b>掃描或點下方按鈕</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-line js-line" href="#" target="_blank" rel="noopener">LINE 加好友</a>
+      <a class="btn btn-tel" target="_top" href="tel:0986191033">撥打 0986-191-033</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  上益環保有限公司　統一編號 45885928<br>台中市南屯區水安街 9 號 1 樓
+</footer>
+
+<div class="sticky">
+  <a class="btn btn-line js-line" href="#" target="_blank" rel="noopener">LINE</a>
+  <a class="btn btn-tel" href="#ask" data-go="ask">留資料</a>
+  <a class="btn btn-tel" target="_top" href="tel:0986191033">打電話</a>
+</div>
+
+<script>(function(){var GAS="https://script.google.com/macros/s/AKfycbwte8IK88CCUDZhhztDAIvQmBvuBanCqjzq8KgPJrS-miRCbzSMUrB7TpJeXrI63N3Reg/exec";function R(s,f){this.s=s;this.f=f}R.prototype.withSuccessHandler=function(fn){return new R(fn,this.f)};R.prototype.withFailureHandler=function(fn){return new R(this.s,fn)};R.prototype.submitLead=function(d){var s=this.s,f=this.f;fetch(GAS,{method:"POST",body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(r){s&&s(r)}).catch(function(e){f&&f(e)})};window.google={script:{run:new R(null,null)}};})();</script>
+<script>
+/* ===== 設定（只需改這裡）===== */
+const LINE_URL = "https://line.me/ti/p/-htuN96xkW";  // LINE 加好友連結
+const LICENSE_NO = "";   // 病媒防治業許可執照字號（空白＝不顯示）
+const GFORM_URL = "https://forms.gle/W7B2UdpGUvUwqfty8";  // 由伺服器自動帶入
+/* ============================= */
+
+const DISTRICTS = ["中區","東區","南區","西區","北區","北屯區","西屯區","南屯區","太平區","大里區","霧峰區","烏日區","豐原區","后里區","石岡區","東勢區","和平區","新社區","潭子區","大雅區","神岡區","大肚區","沙鹿區","龍井區","梧棲區","清水區","大甲區","外埔區","大安區"];
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+$$(".js-line").forEach(a => { if (LINE_URL) a.href = LINE_URL; else a.classList.add("hide"); });
+if (LICENSE_NO) { $(".js-license").textContent = LICENSE_NO; $(".js-license-row").classList.remove("hide"); }
+$("#f-area").innerHTML = '<option value="">請選擇</option>' + DISTRICTS.map(d => `<option>${d}</option>`).join("");
+
+/* ---------- 蟲害自我檢查 ---------- */
+const PRICE = {"30 坪以下":[3000,1800], "31～60 坪":[4500,2800], "61～100 坪":[6500,4000]};
+const ADVICE = {
+  "蟑螂": "蟑螂：縫隙噴藥＋凝膠餌劑，2～4 週回訪確認。餐廳常見的德國蟑螂對一般殺蟲劑有抗性，要輪替藥劑。",
+  "老鼠": "老鼠：先找出入口封堵，再放捕鼠站，記錄每次捕獲數量。",
+  "螞蟻": "螞蟻：用餌劑讓工蟻帶回巢，整窩處理，比直接噴藥有效。",
+  "蚊子／蒼蠅": "蚊蠅：清除積水和垃圾孳生點，門口與牆面做滯留噴灑。",
+  "果蠅／蛾蚋": "果蠅／蛾蚋：多半從排水溝和截油槽長出來，要清管＋處理孳生源。",
+  "還沒看到，想預防": "預防：每月定期施作一次並留紀錄，衛生局稽查時最有說服力。"
+};
+const fmt = n => Math.round(n).toLocaleString("zh-TW");
+const checked = id => $$(`#${id} input:checked`).map(i => i.value);
+
+function checkResult(){
+  const pests = checked("c-pests"), where = checked("c-where");
+  const size = checked("c-size")[0], months = +checked("c-plan")[0];
+  const real = pests.filter(p => p !== "還沒看到，想預防");
+  const score = real.length * 2 + where.length + (where.includes("白天也會看到") ? 2 : 0) + (real.includes("老鼠") ? 2 : 0);
+  const level = !real.length ? "預防為主" : score >= 6 ? "風險高：建議這週處理" : score >= 3 ? "風險中：建議兩週內處理" : "風險低：定期預防就好";
+  let price;
+  if (size === "100 坪以上") {
+    price = '<div class="big">現場估價</div><div class="sub">首次每坪 70 元起（最低 7,000），月約每坪 45 元起（最低 5,000）。</div>';
+  } else {
+    let [first, monthly] = PRICE[size];
+    if (real.includes("老鼠")) { first += 1500; monthly += 500; }
+    if (months === 0) {
+      price = `<div class="sub">先做一次（未稅）</div><div class="big">${fmt(first)} 元</div><div class="sub">含稅約 ${fmt(first*1.05)} 元。簽年約首次可打 5 折。</div>`;
+    } else {
+      const disc = months === 12 ? .5 : .8, total = first*disc + monthly*months;
+      price = `<div class="sub">${months===12?"年約":"半年約"}：首次 ${fmt(first*disc)} 元（原價 ${fmt(first)}）＋每月 ${fmt(monthly)} 元</div><div class="big">平均每月約 ${fmt(total*1.05/months)} 元</div><div class="sub">合約總計含稅約 ${fmt(total*1.05)} 元。</div>`;
+    }
+  }
+  const tips = pests.map(p => `<li>${esc(ADVICE[p])}</li>`).join("");
+  $("#out").innerHTML = (pests.length
+      ? `<span class="lvl">${level}</span><h3>建議做法</h3><ul>${tips}</ul><div style="height:12px"></div>`
+      : `<h3>先點選看到的蟲</h3><p class="empty" style="margin:0 0 12px">選好之後，這裡會出現建議做法。下面是 ${esc(size)} 的參考費用：</p>`)
+    + price
+    + `<div class="sub" style="margin-top:6px">實際依免費到店檢查後報價。</div>`
+    + `<div class="rbtns"><button class="btn" type="button" id="to-form">用這些答案預約檢查</button></div>`;
+  $("#to-form").addEventListener("click", () => {
+    $$("#f-pests input").forEach(i => i.checked = pests.includes(i.value));
+    $("#f-size").value = size;
+    const locs = where.filter(w => w !== "白天也會看到");
+    const note = (locs.length ? "在" + locs.join("、") + "看到。" : "") + (where.includes("白天也會看到") ? "白天也會看到。" : "");
+    if (note && !$("#f-q").value) $("#f-q").value = note;
+    $("#ask").scrollIntoView({behavior:"smooth"});
+    setTimeout(() => $("#f-shop").focus({preventScroll:true}), 400);
+  });
+}
+$$("#check input").forEach(i => i.addEventListener("change", checkResult));
+checkResult();
+
+/* ---------- 留資料／提問 ---------- */
+function collect(){
+  return {
+    shop: $("#f-shop").value.trim(), person: $("#f-person").value.trim(), phone: $("#f-phone").value.trim(),
+    line: $("#f-line").value.trim(), area: $("#f-area").value, size: $("#f-size").value,
+    need: $("#f-need").value, time: $("#f-time").value, pests: checked("f-pests"), q: $("#f-q").value.trim()
+  };
+}
+function message(d){
+  return [`【上益環保 預約／提問】`, `店名：${d.shop}`, `稱呼：${d.person}`, `電話：${d.phone}`,
+    d.line && `LINE：${d.line}`, `行政區：${d.area}`, `坪數：${d.size}`,
+    `看到的蟲：${d.pests.length ? d.pests.join("、") : "未填"}`, `需求：${d.need}`, `方便聯絡：${d.time}`,
+    d.q && `問題：${d.q}`].filter(Boolean).join("\n");
+}
+function showDone(title, text, showForm){
+  $("#f-done-title").textContent = title; $("#f-done-text").textContent = text;
+  $("#f-open").classList.toggle("hide", !(showForm && GFORM_URL && GFORM_URL.indexOf("http") === 0));
+  if (GFORM_URL) $("#f-open").href = GFORM_URL;
+  $("#f-done").classList.remove("hide"); $("#f-done").scrollIntoView({block: "nearest"});
+}
+$("#askform").addEventListener("submit", ev => {
+  ev.preventDefault();
+  const d = collect(), miss = [];
+  if (!d.shop) miss.push("店名");
+  if (!d.person) miss.push("稱呼");
+  if (!/^[0-9+()#\-\s]{8,20}$/.test(d.phone)) miss.push("正確的電話");
+  if (!d.area) miss.push("行政區");
+  if (miss.length) { $("#f-err").textContent = "請填寫：" + miss.join("、"); return; }
+  $("#f-err").textContent = "";
+  $("#f-msg").textContent = message(d);
+  d.website = $("#f-web").value;
+  const btn = $("#f-send"); btn.disabled = true; btn.textContent = "送出中…";
+  const fail = () => { btn.disabled = false; btn.textContent = "送出";
+    showDone("送出失敗，請改用下面方式", "按「複製內容」再開 LINE 傳給我們，或直接打 0986-191-033。", true); };
+  if (!(window.google && google.script && google.script.run)) { fail(); return; }
+  google.script.run
+    .withSuccessHandler(r => {
+      if (r && r.ok) {
+        btn.textContent = "已送出";
+        $("#f-msg").classList.add("hide"); $("#f-copy").classList.add("hide");
+        showDone("已收到，謝謝！", "我們會在當天用電話或 LINE 回覆您。急件請直接打 0986-191-033。也可以加 LINE 好友，直接傳照片給我們。", false);
+      } else { $("#f-err").textContent = (r && r.msg) || "送出失敗"; btn.disabled = false; btn.textContent = "送出"; }
+    })
+    .withFailureHandler(fail)
+    .submitLead(d);
+});
+document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", e => {
+  const t = document.getElementById(a.dataset.go); if (!t) return;
+  e.preventDefault(); t.scrollIntoView({behavior: "smooth"});
+}));
+$("#f-copy").addEventListener("click", async () => {
+  const t = $("#f-msg").textContent, b = $("#f-copy");
+  try { await navigator.clipboard.writeText(t); b.textContent = "已複製"; }
+  catch (e) {
+    const r = document.createRange(); r.selectNodeContents($("#f-msg"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "已選取，請手動複製";
+  }
+  setTimeout(() => b.textContent = "複製內容", 2500);
+});
+</script>
+</body>
+</html>
