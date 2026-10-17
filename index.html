@@ -120,6 +120,22 @@ footer{padding:20px 0 90px;font-size:13px;color:var(--muted);text-align:center}
 @media (min-width:760px){.sticky{display:none}footer{padding-bottom:24px}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .hide{display:none!important}
+/* 字體大小與位置 */
+h2{font-size:clamp(24px,5vw,32px);letter-spacing:.02em;text-align:center}
+section .lead{text-align:center;max-width:36em;margin-left:auto;margin-right:auto;font-size:16px}
+.hero h1{font-size:clamp(30px,6vw,50px);line-height:1.2;letter-spacing:.02em}
+.hero p{font-size:clamp(16px,1.9vw,18px)}
+.card h3{font-size:18px}
+.card p{font-size:15px;line-height:1.75}
+.item b{font-size:18px}
+.item span{font-size:14px}
+.faq .wrap{max-width:780px}
+.faq summary{font-size:16px}
+.contact .info{justify-items:center;text-align:center}
+.contact .btns{justify-content:center}
+#ask .lead a{color:inherit;font-weight:700}
+footer{font-size:14px}
+@media (max-width:760px){.hero-txt{text-align:center}.hero p{margin-left:auto;margin-right:auto}}
 @media (max-width:759px){.qrbox{display:none}}
 @media (min-width:761px){.items{grid-template-columns:repeat(4,1fr)}}
 @media (max-width:560px){
@@ -151,6 +167,11 @@ footer{padding:20px 0 90px;font-size:13px;color:var(--muted);text-align:center}
   .result .big{font-size:24px}
   .chip span{min-height:40px;padding:7px 12px;font-size:14px}
   #f-send{width:100%}
+  .hero h1{font-size:clamp(28px,8.2vw,34px)}
+  .why .card h3{font-size:16px}
+  .why .card p{font-size:14px}
+  .item b{font-size:17px}
+  .item span{font-size:13.5px}
   .contact .btns{display:grid;grid-template-columns:1fr}
 }
 </style>
