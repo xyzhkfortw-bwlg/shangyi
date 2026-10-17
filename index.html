@@ -24,14 +24,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",s
 a{color:inherit}
 .wrap{max-width:960px;margin:0 auto;padding:0 16px}
 header{background:var(--brand);color:var(--brand-ink)}
-.top{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:12px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:12px;gap:12px}
 .logo{font-weight:900;font-size:20px;letter-spacing:.04em}
 .logo small{display:block;font-weight:500;font-size:12px;opacity:.85;letter-spacing:.1em}
 .top a.tel{font-weight:700;text-decoration:none;white-space:nowrap}
 .top-r{display:flex;align-items:center;gap:12px}
-.brand{width:52px;height:52px;border-radius:50%;background:#fff;flex:none;box-shadow:0 0 0 2px rgba(255,255,255,.55)}
+.brand{width:52px;height:52px;flex:none;display:block}
 @media (max-width:359px){.top a.tel{display:none}}
-.hero{padding:36px 0 48px}
+.hero{padding-block:28px 40px}
 .hero h1{font-size:clamp(28px,6vw,44px);line-height:1.25;margin:0 0 14px;font-weight:900;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero p{margin:0 0 24px;font-size:17px;opacity:.92;max-width:34em}
@@ -114,13 +114,46 @@ footer{padding:20px 0 90px;font-size:13px;color:var(--muted);text-align:center}
 @media (min-width:760px){.sticky{display:none}footer{padding-bottom:24px}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .hide{display:none!important}
+@media (max-width:759px){.qrbox{display:none}}
+@media (min-width:761px){.items{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:560px){
+  section{padding:32px 0}
+  .lead{margin-bottom:18px}
+  .hero p{font-size:16px}
+  .hero .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .btns .btn-line{grid-column:1/-1}
+  .hero .btns .btn{padding:12px 10px;font-size:15px}
+  .why .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .why .card{padding:14px}
+  .why .card h3{font-size:15px;line-height:1.4}
+  .why .card p{font-size:13px;line-height:1.6}
+  .items{grid-template-columns:1fr 1fr;gap:8px}
+  .item{padding:12px}
+  .card{padding:16px}
+  .tbl table,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .tbl tr:last-child{border-bottom:0}
+  .tbl td{border:0;padding:0}
+  .tbl td:first-child{grid-column:1/-1;font-weight:700;color:var(--brand);margin-bottom:4px}
+  .tbl td.r{text-align:left;font-size:17px;font-weight:700}
+  .tbl td.r::before{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+  .tbl td:nth-child(2)::before{content:"首次深度除蟲"}
+  .tbl td:nth-child(3)::before{content:"月約（每月1次）"}
+  .formgrid{grid-template-columns:1fr 1fr;gap:12px}
+  .field label{font-size:14px}
+  .result .big{font-size:24px}
+  .chip span{min-height:40px;padding:7px 12px;font-size:14px}
+  #f-send{width:100%}
+  .contact .btns{display:grid;grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap top">
     <div class="logo">上益環保<small>病媒防治・除蟲消毒</small></div>
-    <div class="top-r"><a class="tel" target="_top" href="tel:0986191033">☎ 0986-191-033</a><img class="brand" src="data:image/webp;base64,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" alt="上益環保" width="52" height="52"></div>
+    <div class="top-r"><a class="tel" target="_top" href="tel:0986191033">☎ 0986-191-033</a><svg class="brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="上益環保"><defs><linearGradient id="lg-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dbe53c"/><stop offset=".55" stop-color="#9dc43b"/><stop offset="1" stop-color="#5f9b36"/></linearGradient><linearGradient id="lg-a" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d3e45a"/><stop offset="1" stop-color="#8fc040"/></linearGradient><linearGradient id="lg-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8cbf3f"/><stop offset="1" stop-color="#3d8a33"/></linearGradient><clipPath id="lg-in"><circle cx="100" cy="100" r="80"/></clipPath></defs><circle cx="100" cy="100" r="98" fill="#3d7f34"/><circle cx="100" cy="100" r="95" fill="url(#lg-ring)"/><circle cx="100" cy="100" r="80" fill="#ffffff"/><g clip-path="url(#lg-in)" fill="none" stroke="#c4cad0" stroke-width="1.4"><circle cx="106" cy="96" r="62"/><ellipse cx="106" cy="96" rx="22" ry="62"/><ellipse cx="106" cy="96" rx="44" ry="62"/><line x1="106" y1="34" x2="106" y2="158"/><path d="M46 70 Q106 60 166 70 M44 96 H168 M48 122 Q106 132 164 122"/></g><g clip-path="url(#lg-in)"><path d="M30 136 C 70 112, 128 104, 184 112 C 150 126, 104 136, 30 136 Z" fill="url(#lg-a)"/><path d="M34 142 C 84 140, 140 132, 184 118 L 184 190 L 60 190 C 48 172, 40 156, 34 142 Z" fill="url(#lg-b)"/></g><g transform="translate(40 50) scale(60) skewX(-7)"><path d="M0.39 0.03600000000000003V0.778H0.039V0.925H0.962V0.778H0.547V0.459H0.891V0.31199999999999994H0.547V0.03600000000000003Z M1.6680000000000001 0.02400000000000002C1.649 0.07599999999999996 1.612 0.14500000000000002 1.5819999999999999 0.19099999999999995L1.639 0.20999999999999996H1.3639999999999999L1.421 0.18099999999999994C1.4 0.137 1.358 0.07199999999999995 1.318 0.02300000000000002L1.193 0.07799999999999996C1.221 0.11699999999999999 1.2530000000000001 0.16800000000000004 1.274 0.20999999999999996H1.05V0.33699999999999997H1.321C1.248 0.379 1.1280000000000001 0.426 1.038 0.449C1.067 0.48 1.101 0.5349999999999999 1.12 0.5700000000000001L1.147 0.558V0.8160000000000001H1.04V0.9430000000000001H1.959V0.8160000000000001H1.853V0.5449999999999999L1.8820000000000001 0.56L1.966 0.446C1.9 0.414 1.782 0.369 1.69 0.33699999999999997H1.951V0.20999999999999996H1.721C1.751 0.17100000000000004 1.784 0.12 1.8170000000000002 0.06699999999999995ZM1.275 0.8160000000000001V0.657H1.334V0.8160000000000001ZM1.466 0.8160000000000001V0.657H1.525V0.8160000000000001ZM1.657 0.8160000000000001V0.657H1.718V0.8160000000000001ZM1.5710000000000002 0.424C1.651 0.454 1.7610000000000001 0.5 1.835 0.536H1.195C1.2810000000000001 0.495 1.377 0.442 1.441 0.398L1.355 0.33699999999999997H1.638Z" fill="none" stroke="#ffffff" stroke-width="0.09" stroke-linejoin="round"/><path d="M0.39 0.03600000000000003V0.778H0.039V0.925H0.962V0.778H0.547V0.459H0.891V0.31199999999999994H0.547V0.03600000000000003Z M1.6680000000000001 0.02400000000000002C1.649 0.07599999999999996 1.612 0.14500000000000002 1.5819999999999999 0.19099999999999995L1.639 0.20999999999999996H1.3639999999999999L1.421 0.18099999999999994C1.4 0.137 1.358 0.07199999999999995 1.318 0.02300000000000002L1.193 0.07799999999999996C1.221 0.11699999999999999 1.2530000000000001 0.16800000000000004 1.274 0.20999999999999996H1.05V0.33699999999999997H1.321C1.248 0.379 1.1280000000000001 0.426 1.038 0.449C1.067 0.48 1.101 0.5349999999999999 1.12 0.5700000000000001L1.147 0.558V0.8160000000000001H1.04V0.9430000000000001H1.959V0.8160000000000001H1.853V0.5449999999999999L1.8820000000000001 0.56L1.966 0.446C1.9 0.414 1.782 0.369 1.69 0.33699999999999997H1.951V0.20999999999999996H1.721C1.751 0.17100000000000004 1.784 0.12 1.8170000000000002 0.06699999999999995ZM1.275 0.8160000000000001V0.657H1.334V0.8160000000000001ZM1.466 0.8160000000000001V0.657H1.525V0.8160000000000001ZM1.657 0.8160000000000001V0.657H1.718V0.8160000000000001ZM1.5710000000000002 0.424C1.651 0.454 1.7610000000000001 0.5 1.835 0.536H1.195C1.2810000000000001 0.495 1.377 0.442 1.441 0.398L1.355 0.33699999999999997H1.638Z" fill="#1f2a6b"/></g></svg></div>
   </div>
   <div class="wrap hero">
     <h1>台中餐廳除蟲消毒<br><em>每次附施作紀錄</em><br>衛生局稽查直接出示</h1>
@@ -149,7 +182,7 @@ footer{padding:20px 0 90px;font-size:13px;color:var(--muted);text-align:center}
   </div>
 </section>
 
-<section>
+<section class="why">
   <div class="wrap">
     <h2>為什麼餐飲業找上益</h2>
     <p class="lead">衛生局 GHP 稽查看的是「有沒有定期防治、有沒有紀錄」。</p>
@@ -228,21 +261,21 @@ footer{padding:20px 0 90px;font-size:13px;color:var(--muted);text-align:center}
 <section class="band" id="ask">
   <div class="wrap">
     <h2>留資料／提問</h2>
-    <p class="lead">填好按送出，我們當天用電話或 LINE 回覆。急件請直接打 0986-191-033。</p>
+    <p class="lead">填好按送出，我們當天用電話或 LINE 回覆。急件請直接打 <a target="_top" href="tel:0986191033">0986-191-033</a>。</p>
     <form id="askform" class="card" novalidate>
       <input id="f-web" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="formgrid">
-        <div class="field"><label for="f-shop">店名</label><input id="f-shop" autocomplete="organization" required></div>
+        <div class="field full"><label for="f-shop">店名</label><input id="f-shop" autocomplete="organization" required></div>
         <div class="field"><label for="f-person">怎麼稱呼您</label><input id="f-person" placeholder="例：王先生" required></div>
         <div class="field"><label for="f-phone">聯絡電話</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
         <div class="field"><label for="f-line">LINE ID <span class="opt">選填</span></label><input id="f-line"></div>
         <div class="field"><label for="f-area">店家所在行政區</label><select id="f-area" required></select></div>
         <div class="field"><label for="f-size">店面大約坪數</label>
           <select id="f-size"><option>30 坪以下</option><option>31～60 坪</option><option>61～100 坪</option><option>100 坪以上</option><option>不確定</option></select></div>
-        <div class="field"><label for="f-need">需求</label>
-          <select id="f-need"><option>預約免費到店檢查</option><option>想先知道價格</option><option>收到衛生局限期改善／複查通知</option><option>想簽定期合約</option><option>其他</option></select></div>
         <div class="field"><label for="f-time">方便聯絡的時段</label>
           <select id="f-time"><option>都可以</option><option>上午 9-12 點</option><option>下午 2-5 點</option><option>晚上 6-9 點</option></select></div>
+        <div class="field full"><label for="f-need">需求</label>
+          <select id="f-need"><option>預約免費到店檢查</option><option>想先知道價格</option><option>收到衛生局限期改善／複查通知</option><option>想簽定期合約</option><option>其他</option></select></div>
         <div class="field full"><span style="display:block;font-weight:700;font-size:15px;margin-bottom:6px">看到的蟲 <span class="opt">可複選</span></span>
           <div class="chips" id="f-pests">
             <label class="chip"><input type="checkbox" value="蟑螂"><span>蟑螂</span></label>
