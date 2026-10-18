@@ -425,14 +425,28 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 
 $$(".js-line").forEach(a => { if (LINE_URL) a.href = LINE_URL; else a.classList.add("hide"); });
 if (LICENSE_NO) { $(".js-license").textContent = LICENSE_NO; $(".js-license-row").classList.remove("hide"); }
-$("#f-city").innerHTML = '<option value="">選縣市</option>' + Object.keys(TW).map(c => `<option${c === "臺中市" ? " selected" : ""}>${c}</option>`).join("");
+/* 縣市／行政區：先用內建清單，再向後台讀內政部最新清單（後台每 30 天自動核對一次） */
+const TW_URL = "https://script.google.com/macros/s/AKfycbwte8IK88CCUDZhhztDAIvQmBvuBanCqjzq8KgPJrS-miRCbzSMUrB7TpJeXrI63N3Reg/exec?src=tw";
+function fillCity(sel){
+  $("#f-city").innerHTML = '<option value="">選縣市</option>' + Object.keys(TW).map(c => `<option${c === sel ? " selected" : ""}>${c}</option>`).join("");
+}
 function fillArea(){
   const c = $("#f-city").value;
   $("#f-area").innerHTML = '<option value="">' + (c ? "選行政區" : "先選縣市") + '</option>' + (TW[c] || []).map(d => `<option>${d}</option>`).join("");
   $("#f-area").disabled = !c;
 }
+function setTW(data){
+  const ks = data && typeof data === "object" ? Object.keys(data) : [];
+  if (ks.length < 20 || ks.some(k => !Array.isArray(data[k]) || !data[k].length)) return;
+  const city = $("#f-city").value, area = $("#f-area").value;
+  Object.keys(TW).forEach(k => delete TW[k]); Object.assign(TW, data);
+  fillCity(TW[city] ? city : "");
+  fillArea();
+  if ((TW[city] || []).includes(area)) $("#f-area").value = area;
+}
 $("#f-city").addEventListener("change", fillArea);
-fillArea();
+fillCity("臺中市"); fillArea();
+fetch(TW_URL).then(r => r.json()).then(setTW).catch(() => {});
 
 /* ---------- 蟲害自我檢查 ---------- */
 const PRICE = {"30 坪以下":[3000,1800], "31～60 坪":[4500,2800], "61～100 坪":[6500,4000]};
